@@ -1,7 +1,7 @@
 ﻿namespace RaraChallenge.Scripts.Application.Core
 {
-    public interface IEntityBehaviour
+    public interface IGameState
     {
-        
+        void AddScore(int score);
     }
 }

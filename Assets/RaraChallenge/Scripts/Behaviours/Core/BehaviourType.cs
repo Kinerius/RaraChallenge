@@ -1,4 +1,4 @@
-﻿namespace RaraChallenge.Scripts.Behaviours
+﻿namespace RaraChallenge.Scripts.Behaviours.Core
 {
     public enum BehaviourType
     {

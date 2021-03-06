@@ -10,11 +10,11 @@ namespace RaraChallenge.Scripts.Application.UnityDelivery
     {
         [SerializeField] private ApplicationUIBase[] views;
 
-        public void Init(Application application)
+        public void Init(ApplicationView applicationView)
         {
             foreach (var view in views)
             {
-                view.Init(application);
+                view.Init(applicationView);
                 view.Hide();
             }
         }

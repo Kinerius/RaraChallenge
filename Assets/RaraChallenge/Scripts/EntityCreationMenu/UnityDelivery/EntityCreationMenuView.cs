@@ -1,15 +1,18 @@
 using System;
+using System.Collections.Generic;
 using RaraChallenge.Scripts.Application.Core;
 using RaraChallenge.Scripts.Application.UnityDelivery;
-using RaraChallenge.Scripts.Behaviours;
+using RaraChallenge.Scripts.Behaviours.Core;
+using RaraChallenge.Scripts.EntityCreationMenu.Core;
 using UnityEngine;
 using UnityEngine.UI;
+using Behaviour = RaraChallenge.Scripts.EntityCreationMenu.Core.Behaviour;
 
-namespace RaraChallenge.Scripts.EditorUI.UnityDelivery
+namespace RaraChallenge.Scripts.EntityCreationMenu.UnityDelivery
 {
     public class EntityCreationMenuView : ApplicationUIBase
     {
-        [SerializeField] private Entity[] _entities;
+        [SerializeField] private Core.Entity[] _entities;
         [SerializeField] private Behaviour[] _behaviours;
 
         [SerializeField] private GameObject entitiesContainer;
@@ -30,20 +33,28 @@ namespace RaraChallenge.Scripts.EditorUI.UnityDelivery
 
         private void OnBehaviourClicked(BehaviourType behaviourType)
         {
-            _currentSelection.BehaviourType = behaviourType;
+            if (behaviourType == BehaviourType.None)
+            {
+                _currentSelection.BehaviourTypes.Clear();
+                return;
+            }
+            
+            if (!_currentSelection.BehaviourTypes.Contains(behaviourType))
+                _currentSelection.BehaviourTypes.Add(behaviourType);
         }
 
-        private void OnEntityClicked(GameObject selectedPrefab)
+        private void OnEntityClicked(Core.Entity selectedEntity)
         {
-            _currentSelection.Prefab = selectedPrefab;
+            _currentSelection.Prefab = selectedEntity.prefab;
+            _currentSelection.Icon = selectedEntity.icon;
             ShowBehaviourContainer();
         }
 
         public override void Show()
         {
             gameObject.SetActive(true);
-            
-            _currentSelection = new EntityToCreate();
+
+            _currentSelection = new EntityToCreate {BehaviourTypes = new HashSet<BehaviourType>()};
             ShowEntitiesContainer();
         }
 
@@ -68,7 +79,7 @@ namespace RaraChallenge.Scripts.EditorUI.UnityDelivery
         {
             foreach (var entity in _entities)
             {
-                entity.button.onClick.AddListener(() => OnEntityClicked(entity.prefab));
+                entity.button.onClick.AddListener(() => OnEntityClicked(entity));
             }
 
             foreach (var behaviour in _behaviours)
@@ -89,25 +100,5 @@ namespace RaraChallenge.Scripts.EditorUI.UnityDelivery
         {
             OnEntitySaved(_currentSelection);
         }
-    }
-
-    [Serializable]
-    public struct Entity
-    {
-        public Button button;
-        public GameObject prefab;
-    }
-
-    [Serializable]
-    public struct Behaviour
-    {
-        public Button button;
-        public BehaviourType type;
-    }
-
-    public struct EntityToCreate
-    {
-        public GameObject Prefab;
-        public BehaviourType BehaviourType;
     }
 }
