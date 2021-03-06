@@ -11,6 +11,10 @@ namespace RaraChallenge.Scripts.Application.UnityDelivery
 
         public void Init(ApplicationView applicationView)
         {
+            var rectTransform = (RectTransform)transform;
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.safeArea.width);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.safeArea.height);
+            
             foreach (var view in views)
             {
                 view.Init(applicationView);
