@@ -26,3 +26,5 @@ EditorUIView is the main class that controls the “Edit Mode” and it's window
 - camera movement while entity to create is deselected
 
 - behaviour selector it's just buttons, there is no feedback whether one or more behaviours are selected, also you can't deselect one, you have to clear all by selecting "None"
+
+- behaviours could have been created using a factory pattern and they also could have been designed with command pattern
