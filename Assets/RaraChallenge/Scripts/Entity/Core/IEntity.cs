@@ -1,6 +1,6 @@
-﻿using RaraChallenge.Scripts.Application.Core;
+﻿using RaraChallenge.Scripts.Gameplay.Core;
 
-namespace RaraChallenge.Scripts.Entity.UnityDelivery
+namespace RaraChallenge.Scripts.Entity.Core
 {
     public interface IEntity
     {

@@ -1,5 +1,4 @@
-﻿using RaraChallenge.Scripts.Application.Core;
-using RaraChallenge.Scripts.Behaviours.Core;
+﻿using RaraChallenge.Scripts.Behaviours.Core;
 using UnityEngine;
 using UnityEngine.UI;
 

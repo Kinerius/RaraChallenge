@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using RaraChallenge.Scripts.Application.Core;
+using RaraChallenge.Scripts.Entity.Core;
 using RaraChallenge.Scripts.Entity.UnityDelivery;
 using UnityEngine;
 
-namespace RaraChallenge.Scripts.Application.Core
+namespace RaraChallenge.Scripts.Gameplay.Core
 {
     public class GameState : IGameState
     {

@@ -1,4 +1,4 @@
-﻿namespace RaraChallenge.Scripts.Application.Core
+﻿namespace RaraChallenge.Scripts.Gameplay.Core
 {
     public interface IGameState
     {

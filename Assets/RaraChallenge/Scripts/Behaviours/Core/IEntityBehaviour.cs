@@ -1,5 +1,5 @@
-﻿using RaraChallenge.Scripts.Application.Core;
-using RaraChallenge.Scripts.Entity.UnityDelivery;
+﻿using RaraChallenge.Scripts.Entity.Core;
+using RaraChallenge.Scripts.Gameplay.Core;
 
 namespace RaraChallenge.Scripts.Behaviours.Core
 {

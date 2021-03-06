@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using RaraChallenge.Scripts.Application.Core;
 using RaraChallenge.Scripts.EditorUI.UnityDelivery;
-using RaraChallenge.Scripts.Entity.UnityDelivery;
+using RaraChallenge.Scripts.Entity.Core;
+using RaraChallenge.Scripts.Gameplay.Core;
 using RaraChallenge.Scripts.GameplayUI.UnityDelivery;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace RaraChallenge.Scripts.Application.UnityDelivery
         [SerializeField] private GameObject levelRoot;
         [SerializeField] private Camera mainCamera;
 
-        private List<IEntity> _entities = new List<IEntity>();
+        private readonly List<IEntity> _entities = new List<IEntity>();
         private GameState _gameState;
 
         public void Start()

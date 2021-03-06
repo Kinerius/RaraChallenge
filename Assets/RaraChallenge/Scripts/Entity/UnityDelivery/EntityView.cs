@@ -1,5 +1,6 @@
-﻿using RaraChallenge.Scripts.Application.Core;
-using RaraChallenge.Scripts.Behaviours.Core;
+﻿using RaraChallenge.Scripts.Behaviours.Core;
+using RaraChallenge.Scripts.Entity.Core;
+using RaraChallenge.Scripts.Gameplay.Core;
 using UnityEngine;
 
 namespace RaraChallenge.Scripts.Entity.UnityDelivery
